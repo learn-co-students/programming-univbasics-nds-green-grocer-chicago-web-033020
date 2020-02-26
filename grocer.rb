@@ -99,13 +99,8 @@ def checkout(cart, coupons)
   #
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
-  puts "incart #{cart}"
-  conscart = consolidate_cart(cart)
-  puts "cons cart #{conscart}"
-  newcart = apply_coupons(conscart, coupons)
-  puts "coup cart #{newcart}"
+  newcart = apply_coupons(consolidate_cart(cart), coupons)
   newcart1 = apply_clearance(newcart)
-  puts "clear cart #{newcart1}"
   total = 0 
   i = 0 
   while i < newcart1.size do
