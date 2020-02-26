@@ -63,12 +63,10 @@ def apply_coupons(cart, coupons)
         count: matchhash[:count] -= remainder 
       }
       i = 0
-      while i < cart.size do 
-        if matchhash[:item] == cart[i][:item]
-          cart[i][:count] = remainder
-        end
+      while matchhash[:item] != cart[i][:item] do 
         i += 1 
       end
+      cart[i][:count] = remainder
       cart << new_hash
     end
     cc += 1
